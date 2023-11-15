@@ -62,8 +62,9 @@
 						</exclude>
 					</excludes>
 				</configuration>
-			</plugin>
+			</plugin>	
 		</plugins>
+		<finalName>first-application</finalName>
 	</build>
 
 </project>
