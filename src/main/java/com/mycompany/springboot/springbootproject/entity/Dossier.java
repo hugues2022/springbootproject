@@ -29,6 +29,7 @@ public class Dossier implements Serializable{
     private String commentaire;
     private LocalDate dateDebut;
     private boolean active;
+    private int origine;
 
 
     public Dossier() {
@@ -121,6 +122,14 @@ public class Dossier implements Serializable{
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public int getOrigine() {
+        return this.origine;
+    }
+
+    public void setOrigine(int origine) {
+        this.origine = origine;
     }
 
 }
