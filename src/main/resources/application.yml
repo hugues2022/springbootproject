@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: springbootproject
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springbootproject_db
+    username: root
+    password: "Asyst@2016"
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+server:
+  port: 8080
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://192.168.20.17:8087/eureka/
+feign:
+  circuitbreaker:
+    enabled: true
+    
+#####--- Configuration du keycloack ---#####
+keycloak:
+  realm: budget
+  # auth-server-url: http://192.168.20.17:8080/
+  auth-server-url: http://192.168.20.19:8180/
+  ssl-required: external
+  resource: budget-programme
+  use-resource-role-mappings: true
+  bearer-only: true
+  public-client: true
+  # credentials:
+  #   secret: ${CLIENT_SECRETE}
