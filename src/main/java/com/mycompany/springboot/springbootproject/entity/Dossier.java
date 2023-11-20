@@ -2,59 +2,31 @@ package com.mycompany.springboot.springbootproject.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
+import com.mycompany.springboot.springbootproject.common.EntityGeneric;
+import com.mycompany.springboot.springbootproject.common.constant.TypeVerification;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+
 
 @Entity
-public class Dossier implements Serializable{
+public class Dossier extends EntityGeneric implements Serializable{
 
-    private static final long serialVersionUID = -6994514366L;
+    private static final long serialVersionUID = -6994514366L;    
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Column(nullable = false, name = "id_contribuable")
     private Long idContribuable;
-    private Long type;
-    @Column(nullable = false, name = "date_creation")
-    private LocalDateTime dateCreation;
-    @Column(nullable = false, name="id_operateur_creation")
-    private Long idOperateurCreation;
+    
+    @Enumerated(EnumType.ORDINAL)
+    private TypeVerification type;    
     private String recommendation;
     private String commentaire;
     private LocalDate dateDebut;
     private boolean active;
     private int origine;
-
-
-    public Dossier() {
-    }
-
-    public Dossier(Long id, Long idContribuable, Long type, LocalDateTime dateCreation, Long idOperateurCreation, String recommendation, String commentaire, LocalDate dateDebut, boolean active) {
-        this.id = id;
-        this.idContribuable = idContribuable;
-        this.type = type;
-        this.dateCreation = dateCreation;
-        this.idOperateurCreation = idOperateurCreation;
-        this.recommendation = recommendation;
-        this.commentaire = commentaire;
-        this.dateDebut = dateDebut;
-        this.active = active;
-    }
-
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getIdContribuable() {
         return this.idContribuable;
@@ -64,30 +36,14 @@ public class Dossier implements Serializable{
         this.idContribuable = idContribuable;
     }
 
-    public Long getType() {
+    public TypeVerification getType() {
         return this.type;
     }
 
-    public void setType(Long type) {
+    public void setType(TypeVerification type) {
         this.type = type;
     }
-
-    public LocalDateTime getDateCreation() {
-        return this.dateCreation;
-    }
-
-    public void setDateCreation(LocalDateTime dateCreation) {
-        this.dateCreation = dateCreation;
-    }
-
-    public Long getIdOperateurCreation() {
-        return this.idOperateurCreation;
-    }
-
-    public void setIdOperateurCreation(Long idOperateurCreation) {
-        this.idOperateurCreation = idOperateurCreation;
-    }
-
+ 
     public String getRecommendation() {
         return this.recommendation;
     }
